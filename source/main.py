@@ -19,7 +19,8 @@ class Interface:
         if event.author.id != session.user.id:
             event.thread.send_text('Enter "1" for: museums and art galleries \n\n'
                                    'Enter "2" for: food establishments \n\n'
-                                   'Enter "/end" to stop ')
+                                   'Enter "/end" to stop \n\n'
+                                   'Enter "/new" to start again')
 
 
     @staticmethod
@@ -30,7 +31,7 @@ class Interface:
             event.thread.send_text('Hello, I will help you to find something nearby; to start enter "/start"')
 
     def start_conversation(self, event):
-        if event.message.text != "/start":
+        if event.message.text != "/start" and event.message.text != "/new":
             self.show_interface(event)
         else:
             location.get_location(event)
@@ -42,7 +43,9 @@ class Interface:
                     listener_choice = fbchat.Listener.connect(session, chat_on=False, foreground=False)
                     for event in listener_choice.listen():
                         if isinstance(event, fbchat.MessageEvent):
-                            if event.message.text == "/end":
+                            if event.message.text == "/new":
+                                self.start_conversation(event)
+                            elif event.message.text == "/end":
                                 event.thread.send_text("Have a good time! Bye!")
                                 break
                             elif event.message.text == "1":
@@ -51,9 +54,6 @@ class Interface:
                             elif event.message.text == "2":
                                 places.food(coordinates)
                                 self.choice(event)
-
-
-                    break
 
 
 class Places:
