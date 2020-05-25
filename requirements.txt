@@ -1,0 +1,4 @@
+googlemaps
+attrs
+bs4
+Paho-mqtt
