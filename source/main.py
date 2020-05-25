@@ -1,4 +1,4 @@
-from homeworkcycle.fbchat_master import fbchat
+from Voyager.fbchat_master import fbchat
 import googlemaps
 # import json
 # from source.location import Location
