@@ -5,7 +5,12 @@ import googlemaps
 
 client = googlemaps.Client(key='key')
 
-session = fbchat.Session.login("login", "password")
+login = str(input("Enter your Facebook login: "))
+password = str(input("Enter your Facebook password: "))
+
+session = fbchat.Session.login(login, password)
+
+# session = fbchat.Session.login("login", "password")
 
 listener = fbchat.Listener.connect(session, chat_on=False, foreground=False)
 
