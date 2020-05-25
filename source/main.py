@@ -1,6 +1,6 @@
 from homeworkcycle.fbchat_master import fbchat
 import googlemaps
-import json
+# import json
 # from source.location import Location
 
 client = googlemaps.Client(key='key')
@@ -65,8 +65,8 @@ class Places:
                                     language='en-GB',
                                     radius=1500, type="restaurant")
 
-        with open('food.json', 'w') as f:
-            json.dump(food, f, indent=4, ensure_ascii=False)
+#         with open('food.json', 'w') as f:
+#             json.dump(food, f, indent=4, ensure_ascii=False)
 
         for data in food['results']:
             if k < 10:
@@ -87,8 +87,8 @@ class Places:
                                        language='en-GB',
                                        radius=1500, type="museum")
 
-        with open('museums.json', 'w') as f:
-            json.dump(museums, f, indent=4, ensure_ascii=False)
+#         with open('museums.json', 'w') as f:
+#             json.dump(museums, f, indent=4, ensure_ascii=False)
 
         for data in museums['results']:
             if k < 10:
