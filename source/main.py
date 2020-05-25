@@ -128,10 +128,12 @@ class Location:
         lng = location_dict["lng"]
         return lat, lng
 
-places = Places()
-location = Location()
-interface = Interface()
+if __name__ == '__main__':
+    places = Places()
+    location = Location()
+    interface = Interface()
 
-for event in listener.listen():
-    if isinstance(event, fbchat.MessageEvent):
-        interface.start_conversation(event)
+    for event in listener.listen():
+        if isinstance(event, fbchat.MessageEvent):
+            interface.start_conversation(event)
+
